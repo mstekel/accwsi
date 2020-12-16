@@ -1,0 +1,1 @@
+# akk_word2vec
