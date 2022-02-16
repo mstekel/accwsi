@@ -1,0 +1,58 @@
+downloads = [
+    "http://oracc.museum.upenn.edu/pnao",
+    "http://oracc.museum.upenn.edu/qcat",
+    "http://oracc.museum.upenn.edu/riao",
+    "http://oracc.museum.upenn.edu/ribo",
+    "http://oracc.museum.upenn.edu/ribo/bab7scores",
+    "http://oracc.museum.upenn.edu/ribo/babylon10",
+    "http://oracc.museum.upenn.edu/ribo/babylon2",
+    "http://oracc.museum.upenn.edu/ribo/babylon3",
+    "http://oracc.museum.upenn.edu/ribo/babylon4",
+    "http://oracc.museum.upenn.edu/ribo/babylon5",
+    "http://oracc.museum.upenn.edu/ribo/babylon6",
+    "http://oracc.museum.upenn.edu/ribo/babylon7",
+    "http://oracc.museum.upenn.edu/ribo/babylon8",
+    "http://oracc.museum.upenn.edu/ribo/sources",
+    "http://oracc.museum.upenn.edu/rimanum",
+    "http://oracc.museum.upenn.edu/rinap",
+    "http://oracc.museum.upenn.edu/rinap/rinap1",
+    "http://oracc.museum.upenn.edu/rinap/rinap2",
+    "http://oracc.museum.upenn.edu/rinap/rinap3",
+    "http://oracc.museum.upenn.edu/rinap/rinap4",
+    "http://oracc.museum.upenn.edu/rinap/rinap5",
+    "http://oracc.museum.upenn.edu/rinap/scores",
+    "http://oracc.museum.upenn.edu/saao",
+    "http://oracc.museum.upenn.edu/saao/knpp",
+    "http://oracc.museum.upenn.edu/saao/saa01",
+    "http://oracc.museum.upenn.edu/saao/saa02",
+    "http://oracc.museum.upenn.edu/saao/saa03",
+    "http://oracc.museum.upenn.edu/saao/saa04",
+    "http://oracc.museum.upenn.edu/saao/saa05",
+    "http://oracc.museum.upenn.edu/saao/saa06",
+    "http://oracc.museum.upenn.edu/saao/saa07",
+    "http://oracc.museum.upenn.edu/saao/saa08",
+    "http://oracc.museum.upenn.edu/saao/saa09",
+    "http://oracc.museum.upenn.edu/saao/saa10",
+    "http://oracc.museum.upenn.edu/saao/saa11",
+    "http://oracc.museum.upenn.edu/saao/saa12",
+    "http://oracc.museum.upenn.edu/saao/saa13",
+    "http://oracc.museum.upenn.edu/saao/saa14",
+    "http://oracc.museum.upenn.edu/saao/saa15",
+    "http://oracc.museum.upenn.edu/saao/saa16",
+    "http://oracc.museum.upenn.edu/saao/saa17",
+    "http://oracc.museum.upenn.edu/saao/saa18",
+    "http://oracc.museum.upenn.edu/saao/saa19",
+    "http://oracc.museum.upenn.edu/saao/saa20",
+    "http://oracc.museum.upenn.edu/saao/saa21",
+    "http://oracc.museum.upenn.edu/saao/saas2",
+    "http://oracc.museum.upenn.edu/suhu",
+    "http://oracc.museum.upenn.edu/tcma",
+    "http://oracc.museum.upenn.edu/xcat"
+]
+
+import subprocess
+
+for d in downloads:
+    url = d + "/json"
+    path = r"C:\akk_downloads\datasets\oracc\opendata\auto\\" + d[len("http://oracc.museum.upenn.edu/"):].replace("/", "-") + ".zip"
+    subprocess.run(["curl", url, "-o", path])
