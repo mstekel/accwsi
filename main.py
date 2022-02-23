@@ -1,5 +1,5 @@
 import json
-from oracc import config as oracc_config
+from oracc_dataset import config as oracc_config
 
 config = oracc_config
 

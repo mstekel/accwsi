@@ -5,7 +5,7 @@ from zipfile import ZipFile
 from jsonpath_ng.ext import parse
 
 
-class oracc_corpus:
+class oracc_dataset:
     def should_skip(self, lemma):
         if 'f' in lemma and 'lang' in lemma['f'] and not 'akk' in lemma['f']['lang']:
             return True
@@ -100,7 +100,7 @@ class oracc_corpus:
 
 config = {
     'corpus': 'oracc',
-    'corpus_ctor': oracc_corpus,
+    'corpus_ctor': oracc_dataset,
     'term': 'galû',
     'word2vec_args': {
         'min_count': 1,
