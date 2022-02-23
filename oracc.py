@@ -55,25 +55,27 @@ class oracc_corpus:
                         if 'lang' in l.value['f'] and not 'akk' in l.value['f']['lang']:
                             continue
                         self.add_normal(l, orig_sentence)
+                        self.add_sense(l, sense)
 
                         if not self.should_skip(l.value):
                             self.add_normal(l, context)
                             self.add_lemmatized(l, clean_sentence)
-                            self.add_sense(l, sense)
                         else:
                             discont_count += 1
                             if discont_count >= 8:
-                                parts += [(textid, orig_sentence, context, clean_sentence, genre)]
+                                parts += [(textid, orig_sentence, context, clean_sentence, sense, genre)]
                                 discont_count = 0
                                 orig_sentence = []
                                 context = []
+                                sense = []
                                 clean_sentence = []
                     if discont_count < 8:
-                        parts += [(textid, orig_sentence, context, clean_sentence, genre)]
+                        parts += [(textid, orig_sentence, context, clean_sentence, sense, genre)]
 
-                    for textid, orig_sentence, context, clean_sentence, genre in parts:
+                    for textid, orig_sentence, context, clean_sentence, sense, genre in parts:
                         if len(clean_sentence) > 1:
-                            yield textid, ' '.join(orig_sentence), ' '.join(context), ' '.join(clean_sentence), genre
+                            yield textid, ' '.join(orig_sentence), ' '.join(context), \
+                                  ' '.join(clean_sentence), ' '.join(sense), genre
 
     def add_lemmatized(self, lemma, sentence):
         if 'cf' in lemma.value['f']:
